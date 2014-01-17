@@ -1,0 +1,37 @@
+VAST(version='3.0')
+    - each ad in data.ads
+      p= ad.impressions.length
+      Ad(id = ad.id, sequence = ad.sequence)
+        #{ad.structure}
+          AdSystem(version = ad.AdSystem.version)= ad.AdSystem.name
+          AdTitle= ad.AdTitle
+          Description
+          - each impression in ad.impressions
+            Impression(id = impression.id)
+              :cdata
+                impression.url
+          Creatives
+          - each creative in ad.creatives
+              Creative
+                #{creative.type}
+                  Duration= creative.duration
+                  TrackingEvents
+                  - each trackingEvent in creative.TrackingEvents
+                    Tracking(event = trackingEvent.type)= trackingEvent.url
+                  AdParameters= creative.AdParameters
+                  VideoClicks
+                    - each videoClick in creative.VideoClicks
+                      #{videoClick.type}= videoClick.url
+                  MediaFiles
+                  - each mediaFile in creative.MediaFiles
+                      MediaFile(
+                                type = mediaFile.type,
+                                width = mediaFile.width,
+                                height = mediaFile.height,
+                                delivery = mediaFile.delivery,
+                                bitrate = mediaFile.bitrate,
+                                minbitrate = mediaFile.minbitrate,
+                                maxbitrate = mediaFile.maxbitrate,
+                                scalable = mediaFile.scalable,
+                                maintainaspectratio = mediaFile.maintainaspectratio,
+                                apiframework = mediaFile.apiframework)= mediaFile.url

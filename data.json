@@ -1,0 +1,52 @@
+{
+  "ads": [
+    { 
+      "id" : 1,
+      "structure" : "InLine",
+      "sequence" : 99,
+      "AdTitle" : "Common name of the ad",
+      "AdSystem": { 
+        "name": "Test Ad Server",
+        "version" : "1.0" 
+      },
+      "impressions": [
+        { 
+          "id": "23",
+          "url": "http://impression.com"
+        },
+        {
+          "id": "sample-server",
+          "url": "http://sample-impression.com"
+        }
+      ],
+      "creatives": [
+        { 
+          "type": "Linear",
+          "AdParameters" : "<xml></xml>",
+          "Duration": "00:00:30",
+          "MediaFiles": [
+            {
+              "url": "http://domain.com/file.ext",
+              "type": "video/mp4",
+              "bitrate": "320",
+              "minBitrate": "320",
+              "maxBitrate": "320",
+              "width": "640",
+              "height": "360",
+              "scalable": "true",
+              "maintainAspectRatio": "true",
+              "codec": "",
+              "apiFramework": "VPAID"
+            }
+          ],
+          "TrackingEvents": [
+            { "type": "creativeView", "url": "http://creativeview.com" }
+          ],
+          "VideoClicks": [
+            { "type": "ClickThrough", "url": "http://click-through.com" }
+          ]
+        }
+      ]
+    }
+  ]
+}
